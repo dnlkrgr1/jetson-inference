@@ -8,6 +8,8 @@
 #     $ cd /path/to/your/jetson-inference
 #     $ docker/run.sh
 #
+#
+# Änderung 29.08.2025: Zeile 76 - Ordner Sortieranlage in Container gemounted
 
 show_help() {
     echo " "
@@ -63,14 +65,15 @@ RECOGNIZER_DIR="python/www/recognizer"
 
 DOCKER_ROOT="/jetson-inference"	# where the project resides inside docker
 
-# generate mount commands
+# generate mount commands ÄNDERUNGEN HIER VORGENOMMEN
 DATA_VOLUME=" \
 --volume $PWD/data:$DOCKER_ROOT/data \
 --volume $PWD/$CLASSIFY_DIR/data:$DOCKER_ROOT/$CLASSIFY_DIR/data \
 --volume $PWD/$CLASSIFY_DIR/models:$DOCKER_ROOT/$CLASSIFY_DIR/models \
 --volume $PWD/$DETECTION_DIR/data:$DOCKER_ROOT/$DETECTION_DIR/data \
 --volume $PWD/$DETECTION_DIR/models:$DOCKER_ROOT/$DETECTION_DIR/models \
---volume $PWD/$RECOGNIZER_DIR/data:$DOCKER_ROOT/$RECOGNIZER_DIR/data "
+--volume $PWD/$RECOGNIZER_DIR/data:$DOCKER_ROOT/$RECOGNIZER_DIR/data \
+--volume $PWD/Sortieranlage:$DOCKER_ROOT/Sortieranlage "
 
 # parse user arguments
 USER_COMMAND=""
