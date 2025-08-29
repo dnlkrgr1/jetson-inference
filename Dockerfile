@@ -80,7 +80,12 @@ COPY python/www/dash/requirements.txt /tmp/dash_requirements.txt
 RUN pip3 install --no-cache-dir --verbose --upgrade Cython && \
     pip3 install --no-cache-dir --verbose -r /tmp/pytorch_ssd_requirements.txt && \
     pip3 install --no-cache-dir --verbose -r /tmp/flask_requirements.txt && \
-    pip3 install --no-cache-dir --verbose -r /tmp/dash_requirements.txt
+    pip3 install --no-cache-dir --verbose -r /tmp/dash_requirements.txt 
+
+#
+# install pyModbusTCP
+#
+RUN pip3 install pyModbusTCP 
     
     
 # 
